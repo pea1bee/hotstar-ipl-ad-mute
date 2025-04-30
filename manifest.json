@@ -1,13 +1,17 @@
 {
   "manifest_version": 3,
-  "name": "Hotstar AutoMute",
+  "name": "Hotstar Ad Muter",
   "version": "1.0",
   "permissions": [
     "webRequest",
     "tabs"
   ],
-  "host_permissions": ["<all_urls>"],
+  "host_permissions": ["*://*.hotstar.com/*"],
   "background": {
     "service_worker": "background.js"
+  },
+  "icons": {
+    "48": "48.png",
+    "128": "128.png"
   }
 }

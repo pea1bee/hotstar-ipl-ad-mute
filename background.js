@@ -37,7 +37,7 @@ chrome.webRequest.onBeforeRequest.addListener(
         for (const tab of tabs) {
           if (!tab.mutedInfo.muted) {
             chrome.tabs.update(tab.id, { muted: true });
-        //  console.log(`Muted tab ${tab.id}`);
+          //  console.log(`Muted tab ${tab.id}`);
 
             setTimeout(() => {
               chrome.tabs.get(tab.id, (updatedTab) => {
