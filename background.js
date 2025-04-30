@@ -1,5 +1,10 @@
 const targetAdIds = [
-  "PARLE_MARIE", "KAMLA_PASAND", "VIMAL", "DREAM"
+  "PARLE_MARIE", "KAMLA_PASAND", "VIMAL", "DREAM", "TATAIPL2025_IPL18_"
+];
+
+const durationRegexes = [
+  /(\d{1,3})s(?:Eng(?:lish)?|Hin(?:di)?)/i,      // Matches "20sEng", "15sHindi", "10sHin", etc.
+  /(?:HIN|ENG|HINDI|ENGLISH)[^\d]*(\d{1,3})/i    // Matches "HIN_10", "ENG_15"
 ];
 
 chrome.webRequest.onBeforeRequest.addListener(
@@ -12,8 +17,15 @@ chrome.webRequest.onBeforeRequest.addListener(
       const adIdMatch = targetAdIds.some((id) => adName.includes(id));
 
       if (adIdMatch) {
-        const match = adName.match(/(?:HINDI|HIN|ENG|ENGLISH)_([0-9]{1,3})$/i);
-        const durationSec = match ? parseInt(match[1], 10) : 10;
+        let durationSec = 10;
+        for (const regex of durationRegexes) {
+          const match = adName.match(regex);
+          if (match) {
+            durationSec = parseInt(match[1], 10);
+            break;
+          }
+        }
+
         console.log(`Ad detected: ${adName} — muting for ${durationSec} seconds`);
 
         const tabs = await chrome.tabs.query({ url: "*://*.hotstar.com/*" });
