@@ -1,5 +1,9 @@
 const targetAdIds = [
-  "PARLE_MARIE", "KAMLA_PASAND", "VIMAL", "DREAM", "TATAIPL2025_IPL18_"
+  "PARLE_MARIE",
+  "KAMLA_PASAND",
+  "VIMAL",
+  "DREAM",
+  "PR-25-011191_TATAIPL2025_IPL18_ipl18HANGOUTEVR20sEng_English_VCTA_NA" //siddhu ipl ad
 ];
 
 const durationRegexes = [
@@ -11,7 +15,7 @@ chrome.webRequest.onBeforeRequest.addListener(
   async (details) => {
     const url = new URL(details.url);
     const adName = url.searchParams.get("adName");
-    console.log(`Ad name: ${adName}`);
+    console.log(`Ad id: ${adName}`);
 
     if (adName) {
       const adIdMatch = targetAdIds.some((id) => adName.includes(id));
@@ -26,20 +30,20 @@ chrome.webRequest.onBeforeRequest.addListener(
           }
         }
 
-        console.log(`Ad detected: ${adName} — muting for ${durationSec} seconds`);
+        console.log(`Muting ${adName} for ${durationSec} seconds`);
 
         const tabs = await chrome.tabs.query({ url: "*://*.hotstar.com/*" });
 
         for (const tab of tabs) {
           if (!tab.mutedInfo.muted) {
             chrome.tabs.update(tab.id, { muted: true });
-            console.log(`Muted tab ${tab.id}`);
+        //  console.log(`Muted tab ${tab.id}`);
 
             setTimeout(() => {
               chrome.tabs.get(tab.id, (updatedTab) => {
                 if (updatedTab && updatedTab.mutedInfo.muted) {
                   chrome.tabs.update(tab.id, { muted: false });
-                  console.log(`Unmuted tab ${tab.id}`);
+                //  console.log(`Unmuted tab ${tab.id}`);
                 }
               });
             }, durationSec * 1000);
