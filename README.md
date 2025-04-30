@@ -1,8 +1,8 @@
-Hotstar IPL Ad Muter
+# Hotstar IPL Ad Muter
 
 This Chrome extension auto mutes ads on IPL live streams when specific ad tracking requests (like those containing "PARLE_MARIE") are detected. It dynamically determines how long to mute the tab based on ad metadata.
 
-Provides respite to your ears by blocking the following ads out of the box: **Parle Marie, Vimal, Dream 11, Kamla Pasand, IPL ads with Navjot Singh Sidhu and Akash Chopra**.
+Provides respite to your ears by blocking the following ads out of the box: **Parle Marie, Vimal, Dream 11, Kamla Pasand, IPL ads with Navjot Singh Sidhu and Aakash Chopra**.
 
 ---
 
@@ -45,7 +45,7 @@ const targetAdIds = [
 ];
 ```
 
-Steps to find ad identifiers:
+### Steps to find ad identifiers:
 1. **Open Chrome**, and go to the Extensions page `chrome://extensions/`.
 2. Find and select `Hotstar IPL Ad Muter` extension. Click on "Details".
 3. Click on the section labeled "Inspect views"
