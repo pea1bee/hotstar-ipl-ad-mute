@@ -9,6 +9,7 @@ const targetAdIds = [
 
 const durationRegexes = [
   /(\d{1,3})s(?:Eng(?:lish)?|Hin(?:di)?)/i,      // "20sEng", "15sHindi", "10sHin"
+  /(?:HIN|ENG|HINDI|ENGLISH)[^\d]*(\d{1,3})/i    // "HIN_10", "ENG_15"
 ];
 
 console.log("Hotstar Adblocker extension loaded");
