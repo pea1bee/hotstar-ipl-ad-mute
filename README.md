@@ -39,6 +39,14 @@ Made this browser add-on for personal use and may add or remove ads to mute in t
 
 Note: The extension installs and remains installed until you remove it or restart Firefox.
 
+## Microsoft Edge installation
+
+1.  **Open Edge**, and go to `edge://extensions/`
+2.  **Enable Developer Mode** in the bottom-left corner (if not already enabled).
+3.  Click on **"Load unpacked"**.
+4.  Select the `edge` folder inside the `hotstar-ipl-ad-mute` folder.
+5.  Enjoy muted ads during live sport streams!
+
 ---
 
 ## Customize
