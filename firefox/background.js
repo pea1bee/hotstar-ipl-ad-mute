@@ -2,7 +2,7 @@ const targetAdIds = [
   "PARLE_MARIE",
   "KAMLA_PASAND",
   "VIMAL",
-  "MY11CIRCLE",
+  "MY11C",
   "PR-25-011191_TATAIPL2025_IPL18_ipl18HANGOUTEVR20sEng_English_VCTA_NA" //sidhu ipl ad
 ];
 
@@ -10,6 +10,8 @@ const durationRegexes = [
   /(\d{1,3})s(?:Eng(?:lish)?|Hin(?:di)?)/i,      // "20sEng", "15sHindi", "10sHin"
   /(?:HIN|ENG|HINDI|ENGLISH)[^\d]*(\d{1,3})/i    // "HIN_10", "ENG_15"
 ];
+
+console.log("Hotstar Adblocker extension loaded");
 
 browser.webRequest.onBeforeRequest.addListener(
   async (details) => {
