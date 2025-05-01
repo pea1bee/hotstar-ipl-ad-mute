@@ -3,6 +3,7 @@ const targetAdIds = [
   "KAMLA_PASAND",
   "VIMAL",
   "MY11C",
+  "POKERBAAZI",
   "PR-25-011191_TATAIPL2025_IPL18_ipl18HANGOUTEVR20sEng_English_VCTA_NA" //sidhu ipl ad
 ];
 
