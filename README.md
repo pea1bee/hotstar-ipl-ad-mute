@@ -62,7 +62,7 @@ const targetAdIds = [
 4. **During the IPL livestream**, look for the console log `Ad detected:` followed by the `adName`.
 5. Add full or unique parts ad identifiers you want to mute to the `targetAdIds` array in `background.js`
 
-Alternatively, you can also Open Chrome DevTools (F12) and look for URLs that begin with `https://bifrost-api.hotstar.com/v1/events/track/ct_impression` during a live sport stream and get the ad identifier from the `adName` query parameter.
+Alternatively, you can also Open your browser dev tools and look for URLs that begin with `https://bifrost-api.hotstar.com/v1/events/track/ct_impression` in the **Network tab** during a live sport stream and get the ad identifier from the `adName` query parameter.
 
 ---
 
