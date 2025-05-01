@@ -1,11 +1,11 @@
 ![HOTSTAR IPL AD Muter](chrome/128.png?raw=true) 
 # Hotstar Ad Muter
 
-This browser extension auto mutes annoying ads on live sport streams on Hotstar like IPL by intercepting Hotstar's ad tracking requests. It also dynamically determines how long to mute the tab by guessing the duration in the ad identifier.
+This tiny browser extension auto mutes certain ads in live sport streams on Hotstar like IPL by intercepting Hotstar's ad tracking requests. It also dynamically determines how long to mute by guessing the duration of the ad from the ad identifier.
 
-Provides respite to your ears by muting the following ads out of the box: **Parle Marie, Vimal Elaichi, Kamla Pasand, My11 Circle, IPL ads with Navjot Singh Sidhu or Aakash Chopra**.
+Provides respite to your ears by muting the following ads out of the box: **Parle Marie, Vimal Elaichi, Kamla Pasand, My11 Circle, anything with Navjot Singh Sidhu or Aakash Chopra**.
 
-I have made this browser add-on for my personal use and may add or remove ads to mute in the future from the current list. Please read the customize section to add your own custom ad lists. 
+Made this browser add-on for personal use and may add or remove ads to mute in the future from the current list. Please read the customize section to add your own custom ad lists. 
 
 ---
 
