@@ -7,11 +7,11 @@ const targetAdIds = [
 ];
 
 const durationRegexes = [
-  /(\d{1,3})s(?:Eng(?:lish)?|Hin(?:di)?)/i,      // Matches "20sEng", "15sHindi", "10sHin", etc.
-  /(?:HIN|ENG|HINDI|ENGLISH)[^\d]*(\d{1,3})/i    // Matches "HIN_10", "ENG_15"
+  /(\d{1,3})s(?:Eng(?:lish)?|Hin(?:di)?)/i,      // "20sEng", "15sHindi", "10sHin"
+  /(?:HIN|ENG|HINDI|ENGLISH)[^\d]*(\d{1,3})/i    // "HIN_10", "ENG_15"
 ];
 
-chrome.webRequest.onBeforeRequest.addListener(
+browser.webRequest.onBeforeRequest.addListener(
   async (details) => {
     const url = new URL(details.url);
     const adName = url.searchParams.get("adName");
@@ -32,17 +32,17 @@ chrome.webRequest.onBeforeRequest.addListener(
 
         console.log(`Muting ${adName} for ${durationSec} seconds`);
 
-        const tabs = await chrome.tabs.query({ url: "*://*.hotstar.com/*" });
+        const tabs = await browser.tabs.query({ url: "*://*.hotstar.com/*" });
 
         for (const tab of tabs) {
           if (!tab.mutedInfo.muted) {
-            chrome.tabs.update(tab.id, { muted: true });
+            browser.tabs.update(tab.id, { muted: true });
           //  console.log(`Muted tab ${tab.id}`);
 
             setTimeout(() => {
-              chrome.tabs.get(tab.id, (updatedTab) => {
+              browser.tabs.get(tab.id, (updatedTab) => {
                 if (updatedTab && updatedTab.mutedInfo.muted) {
-                  chrome.tabs.update(tab.id, { muted: false });
+                  browser.tabs.update(tab.id, { muted: false });
                 //  console.log(`Unmuted tab ${tab.id}`);
                 }
               });

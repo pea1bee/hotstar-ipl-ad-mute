@@ -2,7 +2,7 @@
 
 # Hotstar Ad Muter
 
-This Chrome extension auto mutes annoying ads on IPL live streams by intercepting Hotstar's ad tracking requests. It also dynamically determines how long to mute the tab based on ad metadata.
+This Chrome extension auto mutes annoying ads on live sport streams like IPL by intercepting Hotstar's ad tracking requests. It also dynamically determines how long to mute the tab based on ad metadata.
 
 Provides respite to your ears by blocking the following ads out of the box: **Parle Marie, Vimal, Dream 11, Kamla Pasand, IPL ads with Navjot Singh Sidhu and Aakash Chopra**.
 
