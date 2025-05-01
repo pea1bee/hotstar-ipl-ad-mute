@@ -9,20 +9,27 @@ I have made this browser add-on for my personal use and may add or remove ads to
 
 ---
 
-## How to Install in Google Chrome
+## Installation 
 
-1. **Clone** this repository to your computer `git clone https://github.com/pea1bee/hotstar-ipl-ad-mute`
+1. **Clone** this repository to your computer 
+
+   ```bash
+   git clone https://github.com/pea1bee/hotstar-ipl-ad-mute
+   ```
    
    (alternatively, you can download the zip here: https://github.com/pea1bee/hotstar-ipl-ad-mute/archive/refs/heads/main.zip)
-2. **Open Chrome**, and go to `chrome://extensions/`
-3. **Enable Developer Mode** in the top-right corner (if not already enabled).
-4. Click on **"Load unpacked"**.
-5. Select `chrome` folder inside `hotstar-ipl-ad-mute` folder.
-6. Enjoy muted ads during live sport streams!
+
+## Google Chrome installation
+
+1. **Open Chrome**, and go to `chrome://extensions/`
+2. **Enable Developer Mode** in the top-right corner (if not already enabled).
+3. Click on **"Load unpacked"**.
+4. Select `chrome` folder inside `hotstar-ipl-ad-mute` folder.
+5. Enjoy muted ads during live sport streams!
 
 ---
 
-## How to Temporarily Install in Firefox
+## Mozilla Firefox installation
 1. **Open Firefox**
 2. Enter `about:debugging` in the URL bar
 3. Click **This Firefox**
