@@ -1,41 +1,36 @@
-![HOTSTAR IPL AD Muter](128.png?raw=true) 
-
+![HOTSTAR IPL AD Muter](chrome/128.png?raw=true) 
 # Hotstar Ad Muter
 
-This Chrome extension auto mutes annoying ads on live sport streams like IPL by intercepting Hotstar's ad tracking requests. It also dynamically determines how long to mute the tab based on ad metadata.
+This browser extension auto mutes annoying ads on live sport streams on Hotstar like IPL by intercepting Hotstar's ad tracking requests. It also dynamically determines how long to mute the tab by guessing the duration in the ad identifier.
 
-Provides respite to your ears by blocking the following ads out of the box: **Parle Marie, Vimal, Dream 11, Kamla Pasand, IPL ads with Navjot Singh Sidhu and Aakash Chopra**.
+Provides respite to your ears by muting the following ads out of the box: **Parle Marie, Vimal Elaichi, Kamla Pasand, My11 Circle, IPL ads with Navjot Singh Sidhu or Aakash Chopra**.
 
-I use this for my personal use and may add or remove ads to mute in the future from the current list. Please read the customize section to add your own custom ad lists. 
+I have made this browser add-on for my personal use and may add or remove ads to mute in the future from the current list. Please read the customize section to add your own custom ad lists. 
 
 ---
 
-## How to Install (Unpacked Extension)
+## How to Install in Google Chrome
 
-1. **Clone or download** this repository to your computer.
-
-   ```bash
-   git clone https://github.com/pea1bee/hotstar-ipl-ad-mute
-   cd hotstar-ipl-ad-mute
-   ```
-
-   OR
-
-   download the zip here: 
-
-2. **Open Chrome**, and go to the Extensions page:
-
-   ```
-   chrome://extensions/
-   ```
-
+1. **Clone** this repository to your computer `git clone https://github.com/pea1bee/hotstar-ipl-ad-mute`
+   
+   (alternatively, you can download the zip here: https://github.com/pea1bee/hotstar-ipl-ad-mute/archive/refs/heads/main.zip)
+2. **Open Chrome**, and go to `chrome://extensions/`
 3. **Enable Developer Mode** in the top-right corner (if not already enabled).
-
 4. Click on **"Load unpacked"**.
+5. Select `chrome` folder inside `hotstar-ipl-ad-mute` folder.
+6. Enjoy muted ads during live sport streams!
 
-5. Select `hotstar-ipl-ad-mute` folder.
+---
 
-6. Enjoy muted ads!
+## How to Temporarily Install in Firefox
+1. **Open Firefox**
+2. Enter `about:debugging` in the URL bar
+3. Click **This Firefox**
+4. Click **Load Temporary Add-on**
+5. Select `manifest.json` file inside `hotstar-ipl-ad-mute/firefox` folder.
+6. Enjoy muted ads during live sport streams!
+
+Note: The extension installs and remains installed until you remove it or restart Firefox.
 
 ---
 
@@ -58,13 +53,16 @@ const targetAdIds = [
 2. Find and select `Hotstar IPL Ad Muter` extension. Click on "Details".
 3. Click on the section labeled "Inspect views"
 4. **During the IPL livestream**, look for the console log `Ad detected:` followed by the `adName`.
-5. Add full or unique parts of this ad identifier in the `targetAdIds` array in `background.js`
+5. Add full or unique parts ad identifiers you want to mute to the `targetAdIds` array in `background.js`
+
+Alternatively, you can also Open Chrome DevTools (F12) and look for URLs that begin with `https://bifrost-api.hotstar.com/v1/events/track/ct_impression` during a live sport stream and get the ad identifier from the `adName` query parameter.
 
 ---
 
+
 ## Caveats
-- Sometimes ads are cut short abruptly when the next over is about to begin, which may cause a few seconds of muted live action
-- This extension will break if Hotstar change the ad tracking URLs or change the format or keywords in ad identifiers
+- Sometimes when greedy broadcasters think they can sneak in one more ad but the next over is just about to begin so they have to abruptly cut short the ad, this may cause a few seconds of muted live action
+- This extension may break if Hotstar change their current ad tracking URLs or change the format or keywords used in their ad identifiers
 
 ## License
 
