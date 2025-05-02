@@ -11,7 +11,7 @@ Made this browser add-on for personal use and may add or remove ads to mute in t
 
 ## Installation 
 
-1. **Clone** this repository to your computer 
+ **Clone** this repository to your computer 
 
    ```bash
    git clone https://github.com/pea1bee/hotstar-ipl-ad-mute
@@ -68,6 +68,7 @@ Alternatively, you can also open your browser dev tools and look for URLs that b
 
 ## Caveats
 - Sometimes broadcasters try to squeeze in one more ad before the next over begins. If the ad gets cut short abruptly, the live action may stay muted for a few extra seconds before the extension unmutes the tab.
+- This extension may break if Hotstar change their current tracking pixel URLs or change the format or keywords used in their ad identifiers
 
 ## License
 
