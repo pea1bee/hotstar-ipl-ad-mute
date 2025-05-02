@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Hotstar Ad Muter",
   "version": "1.0",
-  "description": "Mutes specific ads during Hotstar live streams",
+  "description": "Mute Hotstar ads",
   "icons": {
     "48": "48.png",
     "128": "128.png"

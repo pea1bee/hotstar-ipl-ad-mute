@@ -2,6 +2,7 @@
   "manifest_version": 3,
   "name": "Hotstar Ad Muter",
   "version": "1.0",
+  "description": "Mute Hotstar ads",
   "permissions": [
     "webRequest",
     "tabs"
