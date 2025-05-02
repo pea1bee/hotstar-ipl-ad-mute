@@ -27,7 +27,7 @@ Made this browser add-on for personal use and may add or remove ads to mute in t
 4. Select `chrome` folder inside `hotstar-ipl-ad-mute` folder.
 5. Enjoy muted ads during live sport streams!
 
-Note: For other chromium based browsers like **Microsoft Edge** and **Brave**, follow the same steps except, change the url to `edge://extensions/` or `brave://extensions/`
+Note: For other Chromium-based browsers like **Microsoft Edge** or **Brave**, follow the same steps. Just change the url to `edge://extensions/` or `brave://extensions/`
 
 ## Mozilla Firefox installation
 1. **Open Firefox**, and go to `about:debugging` 
@@ -67,8 +67,7 @@ Alternatively, you can also open your browser dev tools and look for URLs that b
 
 
 ## Caveats
-- Sometimes broadcasters think they can sneak in one more ad but the next over is just about to begin so they have to abruptly cut short the ad, this may cause a few seconds of muted live action
-- This extension may break if Hotstar change their current tracking pixel URLs or change the format or keywords used in their ad identifiers
+- Sometimes broadcasters try to squeeze in one more ad before the next over begins. If the ad gets cut short abruptly, the live action may stay muted for a few extra seconds before the extension unmutes the tab.
 
 ## License
 
