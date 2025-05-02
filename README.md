@@ -5,7 +5,7 @@ This tiny browser extension auto mutes certain ads in live sport streams on Hots
 
 Provides respite to your ears by muting the following ads out of the box: **Parle Marie, Vimal Elaichi, Kamla Pasand, My11 Circle, Poker Baazi, anything with Navjot Singh Sidhu or Aakash Chopra**.
 
-Made this browser add-on for personal use and may add or remove ads to mute in the future from the current list. Please read the customize section to add your own custom ad lists. 
+Note: I made this browser add-on for personal use and may add or remove ads to mute in the future from the current ad mute list. Please feel free to fork the repo to add your own customizations or read the customize section to add your own custom ad mute lists. 
 
 ---
 
