@@ -22,9 +22,9 @@ Note: I made this browser add-on for personal use and may add or remove ads to m
 ## Google Chrome installation
 
 1. **Open Chrome**, and go to `chrome://extensions/`
-2. **Enable Developer Mode** in the top-right corner (if not already enabled).
-3. Click on **"Load unpacked"**.
-4. Select `chrome` folder inside `hotstar-ipl-ad-mute` folder.
+2. **Enable Developer Mode** in the top-right corner (if not already enabled)
+3. Click on **"Load unpacked"**
+4. Select `chrome` folder inside `hotstar-ipl-ad-mute` folder
 5. Enjoy muted ads during live sport streams!
 
 Note: For other Chromium-based browsers like **Microsoft Edge** or **Brave**, follow the same steps. Just change the url to `edge://extensions/` or `brave://extensions/`
@@ -33,7 +33,7 @@ Note: For other Chromium-based browsers like **Microsoft Edge** or **Brave**, fo
 1. **Open Firefox**, and go to `about:debugging` 
 2. Click **This Firefox**
 3. Click **Load Temporary Add-on**
-4. Select `manifest.json` file inside `hotstar-ipl-ad-mute/firefox` folder.
+4. Select `manifest.json` file inside `hotstar-ipl-ad-mute/firefox` folder
 5. Enjoy muted ads during live sport streams!
 
 Note: The extension installs and remains installed until you remove it or restart Firefox.
@@ -55,10 +55,10 @@ const targetAdIds = [
 ```
 
 ### Steps to find ad identifiers (Google Chrome):
-1. **Open Chrome**, and go to the Extensions page `chrome://extensions/`.
-2. Find and select `Hotstar IPL Ad Muter` extension. Click on "Details".
+1. **Open Chrome**, and go to the Extensions page `chrome://extensions/`
+2. Find and select `Hotstar IPL Ad Muter` extension. Click on "Details"
 3. Click on the section labeled "Inspect views"
-4. **During the IPL livestream**, look for the console log `Ad detected:` followed by the `adName`.
+4. **During the IPL livestream**, look for the console log `Ad detected:` followed by the `adName`
 5. Add full or unique parts ad identifiers you want to mute to the `targetAdIds` array in `background.js`
 
 Alternatively, you can also open your browser dev tools and look for URLs that begin with `https://bifrost-api.hotstar.com/v1/events/track/ct_impression` in the **Network tab** during a live sport stream and get the ad identifier from the `adName` query parameter.
@@ -67,7 +67,7 @@ Alternatively, you can also open your browser dev tools and look for URLs that b
 
 
 ## Caveats
-- Sometimes broadcasters try to squeeze in one more ad before the next over begins. If the ad gets cut short abruptly, the live action may stay muted for a few extra seconds before the extension unmutes the tab.
+- Sometimes broadcasters try to squeeze in one more ad before the next over begins. If the ad gets cut short abruptly, the live action may stay muted for a few extra seconds before the extension unmutes the tab
 - This extension may break if Hotstar change their current tracking pixel URLs or change the format or keywords used in their ad identifiers
 
 ## License
