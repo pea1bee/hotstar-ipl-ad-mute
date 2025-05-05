@@ -1,57 +1,40 @@
-const targetAdIds = [
-  "PARLE_MARIE",
-  "KAMLA_PASAND",
-  "VIMAL",
-  "MY11C",
-  "POKERBAAZI",
-  "PR-25-011191_TATAIPL2025_IPL18_ipl18HANGOUTEVR20sEng_English_VCTA_NA" //sidhu ipl ad
-];
-
-const durationRegexes = [
-  /(\d{1,3})s(?:Eng(?:lish)?|Hin(?:di)?)/i,      // "20sEng", "15sHindi", "10sHin"
-  /(?:HIN|ENG|HINDI|ENGLISH)[^\d]*(\d{1,3})/i    // "HIN_10", "ENG_15"
-];
-
-console.log("Hotstar Adblocker extension loaded");
-
 chrome.webRequest.onBeforeRequest.addListener(
   async (details) => {
     const url = new URL(details.url);
-    const adName = url.searchParams.get("adName");
-    console.log(`Ad id: ${adName}`);
+    const adName = url.searchParams.get("adName") || "Unknown Ad";
 
-    if (adName) {
-      const adIdMatch = targetAdIds.some((id) => adName.includes(id));
+    // Default mute duration in seconds
+    let durationSec = 10;
 
-      if (adIdMatch) {
-        let durationSec = 10;
-        for (const regex of durationRegexes) {
-          const match = adName.match(regex);
-          if (match) {
-            durationSec = parseInt(match[1], 10);
-            break;
-          }
-        }
+    // Attempt to extract duration from adName if possible
+    const durationRegexes = [
+      /(\d{1,3})s(?:Eng(?:lish)?|Hin(?:di)?)/i,
+      /(?:HIN|ENG|HINDI|ENGLISH)[^\d]*(\d{1,3})/i
+    ];
 
-        console.log(`Muting ${adName} for ${durationSec} seconds`);
+    for (const regex of durationRegexes) {
+      const match = adName.match(regex);
+      if (match) {
+        durationSec = parseInt(match[1], 10);
+        break;
+      }
+    }
 
-        const tabs = await chrome.tabs.query({ url: "*://*.hotstar.com/*" });
+    console.log(`Muting ad "${adName}" for ${durationSec} seconds`);
 
-        for (const tab of tabs) {
-          if (!tab.mutedInfo.muted) {
-            chrome.tabs.update(tab.id, { muted: true });
-          //  console.log(`Muted tab ${tab.id}`);
+    const tabs = await chrome.tabs.query({ url: "*://*.hotstar.com/*" });
 
-            setTimeout(() => {
-              chrome.tabs.get(tab.id, (updatedTab) => {
-                if (updatedTab && updatedTab.mutedInfo.muted) {
-                  chrome.tabs.update(tab.id, { muted: false });
-                //  console.log(`Unmuted tab ${tab.id}`);
-                }
-              });
-            }, (durationSec * 1000) - 100); // some buffer for next tracking pixel
-          }
-        }
+    for (const tab of tabs) {
+      if (!tab.mutedInfo.muted) {
+        chrome.tabs.update(tab.id, { muted: true });
+
+        setTimeout(() => {
+          chrome.tabs.get(tab.id, (updatedTab) => {
+            if (updatedTab && updatedTab.mutedInfo.muted) {
+              chrome.tabs.update(tab.id, { muted: false });
+            }
+          });
+        }, (durationSec * 1000) - 100); // Slight buffer before unmuting
       }
     }
   },
