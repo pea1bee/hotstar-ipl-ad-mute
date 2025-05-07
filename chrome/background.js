@@ -3,8 +3,17 @@ const targetAdIds = [
   "KAMLA_PASAND",
   "VIMAL",
   "MY11C",
-  "POKERBAAZI",
-  "PR-25-011191_TATAIPL2025_IPL18_ipl18HANGOUTEVR20sEng_English_VCTA_NA" //sidhu ipl ad
+  "POKER_BAAZI",
+  "VICKS",
+  "POLICY_BAZAAR",
+  "PHONEPE",
+  "TATAIPL2025_JDDDIPL",
+  "GOOGLE_PIXEL",
+  "SAMSUNG_S25",
+  "CAMPA_COLA",
+  "VIVO",
+  "PR-25-011191_TATAIPL2025_IPL18_ipl18HANGOUTEVR20sEng_English_VCTA_NA", //sidhu ipl ad"
+  "PR-25-012799_TATAIPL2025_IPL18_IPL18BHOJPURI20sBHOmob_Hindi_VCTA_20" // bhojpuri ipl ad 
 ];
 
 const durationRegexes = [
