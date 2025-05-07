@@ -53,7 +53,15 @@ const targetAdIds = [
   // Add your own here
 ];
 ```
-
+Alternatively, you can set the `adIdMatch` variable in `background.js` to `true`, so that every ad is muted.
+Change this:
+```js
+const adIdMatch = targetAdIds.some((id) => adName.includes(id));
+```
+To:
+```js
+const adIdMatch = true;
+```
 ### Steps to find ad identifiers (Google Chrome):
 1. **Open Chrome**, and go to the Extensions page `chrome://extensions/`
 2. Find and select `Hotstar IPL Ad Muter` extension. Click on "Details"
