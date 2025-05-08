@@ -3,7 +3,7 @@
 
 This tiny browser extension auto mutes certain ads in live sport streams on Hotstar like IPL by intercepting Hotstar's ad tracking pixels. It also dynamically determines how long to mute by guessing the duration of the ad from the ad identifier.
 
-Provides respite to your ears by muting the following ads out of the box: **Parle Marie, Vimal Elaichi, Kamla Pasand, My11 Circle, Poker Baazi, anything with Navjot Singh Sidhu or Aakash Chopra**.
+Provides respite to your ears by muting the following ads out of the box: **Parle Marie, Vimal Elaichi, Kamla Pasand, My11 Circle, Poker Baazi, Policy Bazaar**.
 
 Note: I made this browser add-on for personal use and may add or remove ads to mute in the future from the current ad mute list. Please feel free to fork the repo to add your own customizations or read the customize section to add your own custom ad mute lists. 
 
@@ -42,6 +42,11 @@ Note: The extension installs and remains installed until you remove it or restar
 
 ## Customize
 
+
+### Mute all Ads 
+You can set the `MUTE_ALL_ADS` variable in `background.js` to `true` to mute all the ads.
+
+### Mute by AD IDs
 You can customize which ads are muted by modifying the `targetAdIds` array in `background.js`.  
 To add a new ad keyword:
 
@@ -53,15 +58,7 @@ const targetAdIds = [
   // Add your own here
 ];
 ```
-Alternatively, you can set the `adIdMatch` variable in `background.js` to `true`, so that every ad is muted.
-Change this:
-```js
-const adIdMatch = targetAdIds.some((id) => adName.includes(id));
-```
-To:
-```js
-const adIdMatch = true;
-```
+
 ### Steps to find ad identifiers (Google Chrome):
 1. **Open Chrome**, and go to the Extensions page `chrome://extensions/`
 2. Find and select `Hotstar IPL Ad Muter` extension. Click on "Details"

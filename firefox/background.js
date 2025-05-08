@@ -4,8 +4,13 @@ const targetAdIds = [
   "VIMAL",
   "MY11C",
   "POKERBAAZI",
-  "PR-25-011191_TATAIPL2025_IPL18_ipl18HANGOUTEVR20sEng_English_VCTA_NA" //sidhu ipl ad
-];
+  "POKER_BAAZI",
+  "POLICY_BAZAAR",
+  "PR-25-011191_TATAIPL2025_IPL18_ipl18HANGOUTEVR20sEng_English_VCTA_NA", //sidhu ipl ad
+  "PR-25-012799_TATAIPL2025_IPL18_IPL18BHOJPURI20sBHOmob_Hindi_VCTA_20"
+]
+
+const MUTE_ALL_ADS = false; // Set to true to mute all ads
 
 const durationRegexes = [
   /(\d{1,3})s(?:Eng(?:lish)?|Hin(?:di)?)/i,      // "20sEng", "15sHindi", "10sHin"
@@ -21,7 +26,7 @@ browser.webRequest.onBeforeRequest.addListener(
     console.log(`Ad id: ${adName}`);
 
     if (adName) {
-      const adIdMatch = targetAdIds.some((id) => adName.includes(id));
+      const adIdMatch = MUTE_ALL_ADS || targetAdIds.some((id) => adName.includes(id));
 
       if (adIdMatch) {
         let durationSec = 10;
